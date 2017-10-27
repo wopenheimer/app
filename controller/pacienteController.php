@@ -56,7 +56,7 @@ function add(){
 function edit(){
 	if (!$_POST) {
 		$paciente = new Paciente();
-		$paciente_edit = $paciente->getPacienteByCpf(validInputData($_GET["cpf"]));
+		$paciente_edit = $paciente->getPacienteByCpf(validInputData($_GET["id"]));
 
 		$template = "paciente_" . "edit";
 		render($paciente_edit, $template);
@@ -83,7 +83,7 @@ function edit(){
 
 function remove(){
 	$paciente = new Paciente();
-	$paciente->setCpf(validInputData($_GET["cpf"]));
+	$paciente->setCpf(validInputData($_GET["id"]));
 
 	$result = $paciente->remove();
 	$template = "show_message";

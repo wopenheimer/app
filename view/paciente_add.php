@@ -6,7 +6,7 @@
                 <h4 class="modal-title">Paciente</h4>
             </div>
             <div class="modal-body">
-			    <form action="?module=paciente&page=add" method="POST">
+			    <form action="/paciente/add" method="POST">
 			        <div class="form-group">
 			            <label for="cpf">Cpf</label>
 			            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Cpf" required>
@@ -20,7 +20,12 @@
 
 			        <div class="form-group">
 			            <label for="datanasc">Data de Nascimento</label>
-			            <input type="text" class="form-control" id="datanasc" name="datanasc" placeholder="Data de Nascimento" required>
+                                    <div class="input-group date" id="datetimepicker1">
+                                        <input type="text" class="form-control" id="datanasc" name="datanasc" placeholder="Data de Nascimento" required>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
 			        </div>
 
 			        <div class="form-group">
@@ -39,3 +44,9 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(function () {        
+        $('#datetimepicker1').datetimepicker();
+    });
+</script>

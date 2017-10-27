@@ -8,9 +8,10 @@
     <title>Clínicas Médicas</title>
 
     <!-- Bootstrap -->
-    <link href="view/css/bootstrap.min.css" rel="stylesheet">
-    <link href="view/css/estilo.css" rel="stylesheet">
-
+    <link href="/view/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/view/css/estilo.css" rel="stylesheet">
+    <link href="/view/css/bootstrap-datetimepicker.min.css" rel="stylesheet">    
+    
   </head>
   <body>
     
@@ -20,22 +21,26 @@
  
     <div class="container">
         <?php
-
-          $module = $_REQUEST["module"];
-          $page = $_REQUEST["page"];
           
-          if(isset($module) && $module != ""){
-            if(isset($page) && $page != ""){
-              include("controller/" . $module ."Controller.php");
-            }
-          } 
+          if (isset($_REQUEST["module"]) && isset($_REQUEST["page"]))  {
+            $module = $_REQUEST["module"];
+            $page = $_REQUEST["page"];
+
+            if(isset($module) && $module != ""){
+              if(isset($page) && $page != ""){
+                include("controller/" . $module ."Controller.php");
+              }
+            } 
+          }
         ?>
     </div>
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="view/js/bootstrap.min.js"></script>
+    <script src="/view/js/bootstrap.min.js"></script>
+    <script src="/view/js/bootstrap-datetimepicker.min.js"></script>
+    
     
   </body>
 </html>

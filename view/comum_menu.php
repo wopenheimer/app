@@ -9,8 +9,8 @@
             <a class="navbar-brand" href="#">Gestão de Clínicas Médicas</a>
   </div>
   <ul class="nav nav-pills">
-      <li class="active"><a href="?module="><span class="glyphicon glyphicon-home"></span>  Home</a></li>
-      <li><a href="?module=paciente&page=home"><span class="glyphicon glyphicon-user"></span> Pacientes</a></li>
-      <li><a href="?module=consulta&page=home"><span class="glyphicon glyphicon-tags"></span> Consultas</a></li>
+      <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+      <li><a href="/paciente/home"><span class="glyphicon glyphicon-user"></span> Pacientes</a></li>
+      <li><a href="/consulta/home"><span class="glyphicon glyphicon-tags"></span> Consultas</a></li>
   </ul>
 </div>  

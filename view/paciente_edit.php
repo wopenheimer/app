@@ -1,4 +1,4 @@
- <form action="?module=paciente&page=edit" method="POST">
+ <form action="/paciente/edit" method="POST">
     <div class="form-group">
         <label for="cpf">Cpf</label>
         <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Cpf" value="<?=$args->getCpf()?>" required>
@@ -12,7 +12,14 @@
 
     <div class="form-group">
         <label for="datanasc">Data de Nascimento</label>
-        <input type="date" class="form-control" id="datanasc" name="datanasc" placeholder="Data de Nascimento" value="<?=$args->getDatanasc()?>" required>
+        <div class="input-group date" id="datetimepicker1">
+            <input type="text" class="form-control" id="datanasc" name="datanasc" placeholder="Data de Nascimento" value="<?=$args->getDatanasc()?>" required>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+
+
     </div>
 
     <div class="form-group">
@@ -28,3 +35,15 @@
     <button type="submit" class="btn btn-primary">Enviar</button>
 
 </form> 
+
+<script type="text/javascript">
+    
+        
+    
+    $(function () {        
+            $('#datetimepicker1').datetimepicker({
+        format: 'yyyy-mm-dd hh:ii',
+        inline: true
+    });
+    });
+</script>
