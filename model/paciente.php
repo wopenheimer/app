@@ -119,12 +119,39 @@ class Paciente
         
         return $array_pacientes;
 	}	
+
+
+	public function getPacienteByCpf($cpf) {                        
+        $v_paciente = $this->paciente_dao->getPacienteByCpf($cpf);
+        
+        $paciente = new Paciente();
+        $paciente->setCpf($v_paciente->cpf);
+        $paciente->setNome($v_paciente->nome);
+        $paciente->setDatanasc($v_paciente->datanasc);
+        $paciente->setPeso($v_paciente->peso);
+        $paciente->setAltura($v_paciente->altura);
+
+        return $paciente;
+	}		
         
 
 	public function add() {                        
         $result = $this->paciente_dao->add($this);        
         return $result;
 	}	        
+
+
+	public function edit() {                        
+        $result = $this->paciente_dao->edit($this);        
+        return $result;
+	}	        
+
+
+	public function remove() {                        
+        $result = $this->paciente_dao->remove($this);        
+        return $result;
+	}	        	
+
 
 }
 

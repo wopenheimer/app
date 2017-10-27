@@ -16,17 +16,27 @@ print '
 		<th>Altura</th>	
 		<th>Idade</th>
 		<th>Massa Corpórea</th>
+		<th>Opções</th>
 	</tr>';
 	for($i = 0; $i < sizeof($pacientes); $i++){
 		$paciente = $pacientes[$i];
 		print '<tr>
-			<td>' .$paciente->getCpf() .'</td>
+			<td>' .$paciente->getCpf(). '</td>
 			<td>' .$paciente->getNome() .'</td>
 			<td>' .$paciente->getDatanasc() .'</td>
 			<td>' .$paciente->getPeso() .'</td>
 			<td>' .$paciente->getAltura() .'</td>
 			<td>' .$paciente->getIdade() .'</td>
 			<td>' .$paciente->getImc() .'</td>
+			<td>
+			<a href="?module=paciente&page=edit&cpf=' .$paciente->getCpf() .'" class="btn btn-default" role="button">
+				<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+			</a>
+			<a href="?module=paciente&page=remove&cpf=' .$paciente->getCpf() .'" class="btn btn-default" role="button">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</a>
+
+			</td>
 		</tr>';		
 	}
 print '</table>';

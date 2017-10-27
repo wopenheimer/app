@@ -9,28 +9,28 @@
 			    <form action="?module=paciente&page=add" method="POST">
 			        <div class="form-group">
 			            <label for="cpf">Cpf</label>
-			            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Cpf">
+			            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Cpf" required>
 			        </div>
 
 
 			        <div class="form-group">
 			            <label for="nome">Nome</label>
-			            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+			            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
 			        </div>
 
 			        <div class="form-group">
 			            <label for="datanasc">Data de Nascimento</label>
-			            <input type="text" class="form-control" id="datanasc" name="datanasc" placeholder="Data de Nascimento">
+			            <input type="text" class="form-control" id="datanasc" name="datanasc" placeholder="Data de Nascimento" required>
 			        </div>
 
 			        <div class="form-group">
 			            <label for="altura">Peso</label>
-			            <input type="text" class="form-control" id="peso" name="peso" placeholder="Peso">
+			            <input type="text" class="form-control" id="peso" name="peso" placeholder="Peso" required>
 			        </div>
 
 			        <div class="form-group">
 			            <label for="altura">Altura</label>
-			            <input type="text" class="form-control" id="altura" name="altura" placeholder="Altura">
+			            <input type="text" class="form-control" id="altura" name="altura" placeholder="Altura" required>
 			        </div>
 
 			        <button type="submit" class="btn btn-primary">Enviar</button>

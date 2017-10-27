@@ -7,11 +7,17 @@ switch ($_REQUEST["page"]) {
     case 'home':
 	   home();
        break;
-	case 'processar_imc':
-		processar_imc();
-		break;	
 	case 'add':
 		add();
+		break;	
+	case 'edit':
+		edit();
+		break;	
+	case 'remove':
+		remove();
+		break;	
+	case 'processar_imc':
+		processar_imc();
 		break;	
 	default:
 		# code...
@@ -26,30 +32,76 @@ function home() {
    render($pacientes, $template);	
 }
 
+
 function add(){
 	$paciente = new Paciente();
-	$paciente->setCpf($_POST["cpf"]);
-	$paciente->setNome($_POST["nome"]);
-	$paciente->setDatanasc($_POST["datanasc"]);
-	$paciente->setPeso($_POST["peso"]);
-	$paciente->setAltura($_POST["altura"]);
+	$paciente->setCpf(validInputData($_POST["cpf"]));
+	$paciente->setNome(validInputData($_POST["nome"]));
+	$paciente->setDatanasc(validInputData($_POST["datanasc"]));
+	$paciente->setPeso(validInputData($_POST["peso"]));
+	$paciente->setAltura(validInputData($_POST["altura"]));
 
 	$result = $paciente->add();
-	$template = "paciente_" . "show_message";
+	$template = "show_message";
 
 	if ($result) {
 		$args['message'] = "Inserido com sucesso!";	
 	} else {
 		$args['message'] = "Houve uma falha na insercao.";	
 	}
-	render($args, $template);}
+	render($args, $template);
+}
+
+
+function edit(){
+	if (!$_POST) {
+		$paciente = new Paciente();
+		$paciente_edit = $paciente->getPacienteByCpf(validInputData($_GET["cpf"]));
+
+		$template = "paciente_" . "edit";
+		render($paciente_edit, $template);
+	} else {
+		$paciente = new Paciente();
+		$paciente->setCpf(validInputData($_POST["cpf"]));
+		$paciente->setNome(validInputData($_POST["nome"]));
+		$paciente->setDatanasc(validInputData($_POST["datanasc"]));
+		$paciente->setPeso(validInputData($_POST["peso"]));
+		$paciente->setAltura(validInputData($_POST["altura"]));
+
+		$result = $paciente->edit();
+		$template = "show_message";
+
+		if ($result) {
+			$args['message'] = "Alterado com sucesso!";	
+		} else {
+			$args['message'] = "Houve uma falha na edição.";	
+		}
+		render($args, $template);		
+	}
+}
+
+
+function remove(){
+	$paciente = new Paciente();
+	$paciente->setCpf(validInputData($_GET["cpf"]));
+
+	$result = $paciente->remove();
+	$template = "show_message";
+
+	if ($result) {
+		$args['message'] = "Removido com sucesso!";	
+	} else {
+		$args['message'] = "Houve uma falha na remoção.";	
+	}
+	render($args, $template);		
+}
 
 
 function processar_imc(){
-	$peso = $_POST["peso"];
-	$altura = $_POST["altura"];
+	$peso = validInputData($_POST["peso"]);
+	$altura = validInputData($_POST["altura"]);
 	$imc = Paciente::getImcQualquerPessoa($peso, $altura);
-	$template = "paciente_" . "show_message";
+	$template = "show_message";
 	$args['message'] = "IMC calculado: ";
 	$args['content'] = $imc;
 	render($args, $template);
