@@ -106,16 +106,18 @@ class Paciente
             
         $pacientes = $this->paciente_dao->getPacientes();
         
-        for ($i = 0; $i < sizeof($pacientes); $i++) {
-            $v_paciente = $pacientes[$i];
-            $paciente = new Paciente();
-            $paciente->setCpf($v_paciente["cpf"]);
-            $paciente->setNome($v_paciente["nome"]);
-            $paciente->setDatanasc($v_paciente["datanasc"]);
-            $paciente->setPeso($v_paciente["peso"]);
-            $paciente->setAltura($v_paciente["altura"]);
-            $array_pacientes[] = $paciente;
-        }
+        $array_pacientes = [];        
+        if ($pacientes){
+	        foreach ($pacientes as $v_paciente) {
+	            $paciente = new Paciente();
+	            $paciente->setCpf($v_paciente["cpf"]);
+	            $paciente->setNome($v_paciente["nome"]);
+	            $paciente->setDatanasc($v_paciente["datanasc"]);
+	            $paciente->setPeso($v_paciente["peso"]);
+	            $paciente->setAltura($v_paciente["altura"]);
+	            $array_pacientes[] = $paciente;
+	        }
+    	}
         
         return $array_pacientes;
 	}	

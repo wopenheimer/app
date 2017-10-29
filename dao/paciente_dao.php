@@ -34,11 +34,13 @@ class PacienteDao extends Dao {
 
 
     public function edit($paciente) {
-        $sql = 'update paciente set nome = $1, datanasc = $2, peso = $3, altura = $4 ';
-        $sql .= 'where cpf = $5;';
+        $sql = 'update paciente set cpf = $1, nome = $2, datanasc = $3, peso = $4, altura = $5 ';
+        $sql .= 'where cpf = $6;';
         $param = array();
-        array_push($param, $paciente->getNome(),
-                    $paciente->getDatanasc(), $paciente->getPeso(), $paciente->getAltura(), $paciente->getCpf());
+
+        array_push($param, $paciente->getCpf(), $paciente->getNome(),
+                    $paciente->getDatanasc(), $paciente->getPeso(), $paciente->getAltura(), 
+                    validInputData($_POST["old_cpf"]));
 
         $result = $this->executaQuery($sql, $param);
         return $result;        

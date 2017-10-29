@@ -56,10 +56,10 @@ function add(){
 function edit(){
 	if (!$_POST) {
 		$paciente = new Paciente();
-		$paciente_edit = $paciente->getPacienteByCpf(validInputData($_GET["id"]));
+		$paciente_obj = $paciente->getPacienteByCpf(validInputData($_GET["id"]));
 
 		$template = "paciente_" . "edit";
-		render($paciente_edit, $template);
+		render($paciente_obj, $template);
 	} else {
 		$paciente = new Paciente();
 		$paciente->setCpf(validInputData($_POST["cpf"]));

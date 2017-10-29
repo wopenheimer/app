@@ -30,12 +30,12 @@
 
 			        <div class="form-group">
 			            <label for="altura">Peso</label>
-			            <input type="text" class="form-control" id="peso" name="peso" placeholder="Peso" required>
+			            <input type="number" step="0.01" class="form-control" id="peso" name="peso" placeholder="Peso" required>
 			        </div>
 
 			        <div class="form-group">
 			            <label for="altura">Altura</label>
-			            <input type="text" class="form-control" id="altura" name="altura" placeholder="Altura" required>
+			            <input type="number" step="0.01" class="form-control" id="altura" name="altura" placeholder="Altura" required>
 			        </div>
 
 			        <button type="submit" class="btn btn-primary">Enviar</button>
@@ -46,7 +46,12 @@
 </div>
 
 <script type="text/javascript">
-    $(function () {        
-        $('#datetimepicker1').datetimepicker();
+  $(function () {        
+        $('#datetimepicker1').datetimepicker({ 
+        	minView: 2, 
+        	pickTime: false, 
+        	format: 'dd/mm/yyyy',
+        	locale: 'pt-BR'
+        });
     });
 </script>

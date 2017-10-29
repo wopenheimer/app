@@ -11,6 +11,8 @@
   <ul class="nav nav-pills">
       <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
       <li><a href="/paciente/home"><span class="glyphicon glyphicon-user"></span> Pacientes</a></li>
+      <li><a href="/usuario/home"><span class="glyphicon glyphicon-user"></span> Usuários</a></li>
+
       <li><a href="/consulta/home"><span class="glyphicon glyphicon-tags"></span> Consultas</a></li>
   </ul>
 </div>  
