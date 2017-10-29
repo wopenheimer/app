@@ -1,8 +1,8 @@
   <div class="wrapper">
-    <form class="form-signin">       
+    <form action="/comum/login" method="POST" class="form-signin">       
       <h2 class="form-signin-heading">Entrar</h2>
-      <input type="text" class="form-control" name="username" id="username" placeholder="Email" required="" autofocus="" />
-      <input type="password" class="form-control" name="password" id="password" placeholder="Senha" required=""/>      
+      <input type="email" class="form-control" name="email" id="email" placeholder="Email" required autofocus="" />
+      <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" required />      
       <label class="checkbox">
         <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Lembrar
       </label>

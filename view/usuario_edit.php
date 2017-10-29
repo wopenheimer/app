@@ -16,7 +16,7 @@
 
     <div class="form-group">
         <label for="paciente">Paciente</label>
-        <select id="paciente" name="paciente" class="form-control selectpicker" data-live-search="true">
+        <select id="paciente" name="paciente" class="form-control selectpicker" data-live-search="true" required>
           <?php        
           foreach ($args['pacientes'] as $paciente) {
             ?>

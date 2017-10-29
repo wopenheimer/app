@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -22,28 +25,39 @@
     <script src="/view/js/locale/bootstrap-datetimepicker.pt-BR.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>    
     
-
-    
   </head>
   <body>
     
-    <?php
-      include("utils/menu.php");
+    <?php      
+      include_once("utils/utils.php");
+      include_once("utils/menu.php");
     ?>
  
     <div class="container">
         <?php
-          
-          if (isset($_REQUEST["module"]) && isset($_REQUEST["page"]))  {
-            $module = $_REQUEST["module"];
-            $page = $_REQUEST["page"];
-
-            if(isset($module) && $module != ""){
-              if(isset($page) && $page != ""){
-                include("controller/" . $module ."Controller.php");
+          if (!check_session_active()) {
+            $_REQUEST["page"] = PAGE_LOGIN;
+            include("controller/" . MODULE_LOGIN ."Controller.php");  
+          } else {
+            if (isset($_REQUEST["module"]) && isset($_REQUEST["page"]))  {
+              $module = $_REQUEST["module"];
+              $page = $_REQUEST["page"];
+              if ($page != PAGE_LOGIN) {
+                if(isset($module) && $module != ""){
+                  if(isset($page) && $page != ""){
+                    include("controller/" . $module ."Controller.php");
+                  }
+                }                   
+              } else {
+                $_REQUEST["page"] = PAGE_HOME;
+                include("controller/" . MODULE_HOME ."Controller.php");                
               }
-            } 
+            } else {
+              $_REQUEST["page"] = PAGE_HOME;
+              include("controller/" . MODULE_HOME ."Controller.php");                
+            }   
           }
+
         ?>
     </div>    
   </body>

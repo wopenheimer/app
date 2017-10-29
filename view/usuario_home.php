@@ -17,7 +17,7 @@ print '
 		print '<tr>
 			<td>' .$usuario->getId(). '</td>
 			<td>' .$usuario->getEmail() .'</td>
-			<td>' .$usuario->getPaciente()->getNome() .'</td>
+			<td><a href="/paciente/edit/' .$usuario->getPaciente()->getCpf() .'">' .$usuario->getPaciente()->getNome() .'</a></td>
 			<td>
 			<a href="/usuario/edit/' .$usuario->getId() .'" class="btn btn-default" role="button">
 				<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>

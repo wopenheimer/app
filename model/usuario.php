@@ -39,10 +39,8 @@ class Usuario
 		return $this->senha;
 	}
 
-	public function setPaciente($paciente_cpf){
-		$paciente = new Paciente();
-		$paciente_obj = $paciente->getPacienteByCpf($paciente_cpf);
-		$this->paciente = $paciente_obj;
+	public function setPaciente($paciente){
+		$this->paciente = $paciente;
 	}
 
 	public function getPaciente(){
@@ -61,7 +59,15 @@ class Usuario
 	            $usuario->setId($v_usuario["id"]);
 	            $usuario->setEmail($v_usuario["email"]);
 	            $usuario->setSenha($v_usuario["senha"]);
-	            $usuario->setPaciente($v_usuario["paciente_cpf"]);
+
+	            $paciente = new Paciente();
+	            $paciente->setCpf($v_usuario["cpf"]);
+	            $paciente->setNome($v_usuario["nome"]);
+	            $paciente->setDatanasc($v_usuario["datanasc"]);
+	            $paciente->setPeso($v_usuario["peso"]);
+	            $paciente->setAltura($v_usuario["altura"]);
+
+	            $usuario->setPaciente($paciente);
 	            $array_usuarios[] = $usuario;
 	        }
     	}
@@ -76,7 +82,15 @@ class Usuario
         $usuario->setId($v_usuario->id);
         $usuario->setEmail($v_usuario->email);
         $usuario->setSenha($v_usuario->senha);
-        $usuario->setPaciente($v_usuario->paciente_cpf);
+
+        $paciente = new Paciente();
+        $paciente->setCpf($v_usuario->cpf);
+        $paciente->setNome($v_usuario->nome);
+        $paciente->setDatanasc($v_usuario->datanasc);
+        $paciente->setPeso($v_usuario->peso);
+        $paciente->setAltura($v_usuario->altura);
+
+        $usuario->setPaciente($paciente);
 
         return $usuario;
 	}		
@@ -98,6 +112,29 @@ class Usuario
         $result = $this->usuario_dao->remove($this);        
         return $result;
 	}	        	
+
+	public function getLogin() {                        
+        $v_usuario = $this->usuario_dao->getLogin($this);        
+
+        $usuario = null;
+		if ($v_usuario) {
+	        $usuario = new Usuario();
+	        $usuario->setId($v_usuario->id);
+	        $usuario->setEmail($v_usuario->email);
+	        $usuario->setSenha($v_usuario->senha);
+
+	        $paciente = new Paciente();
+	        $paciente->setCpf($v_usuario->cpf);
+	        $paciente->setNome($v_usuario->nome);
+	        $paciente->setDatanasc($v_usuario->datanasc);
+	        $paciente->setPeso($v_usuario->peso);
+	        $paciente->setAltura($v_usuario->altura);
+
+	        $usuario->setPaciente($paciente);			
+		} 
+
+        return $usuario;
+	}	        		
 
 
 }

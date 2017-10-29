@@ -6,8 +6,53 @@
  * and open the template in the editor.
  */
 
+define("MODULE_LOGIN", "comum");
+define("PAGE_LOGIN", "login");
+
+define("MODULE_HOME", "paciente");
+define("PAGE_HOME", "home");
+
+
 function render($args, $template){
     include("view/" . $template . ".php");
+}
+
+
+function check_session_active() {
+    if (isset($_SESSION["userid"]) &&
+            isset($_SESSION["username"]) &&
+            isset($_SESSION["useremail"]) &&
+            isset($_SESSION["usercpf"])) {
+            return true;
+    } else {
+        return false;
+    }
+}
+
+
+function create_session_user($usuario) {
+    if (!isset($_SESSION["userid"]) &&
+            !isset($_SESSION["username"]) &&
+            !isset($_SESSION["useremail"]) &&
+            !isset($_SESSION["usercpf"])) {
+
+        $_SESSION["userid"] = $usuario->getId();
+        $_SESSION["username"] = $usuario->getPaciente()->getNome();
+        $_SESSION["useremail"] = $usuario->getEmail();
+        $_SESSION["usercpf"] = $usuario->getPaciente()->getCpf();
+
+    } 
+}
+
+
+function destroy_session_user() {
+    unset($_SESSION["userid"]);
+    unset($_SESSION["username"]);
+    unset($_SESSION["useremail"]);
+    unset($_SESSION["usercpf"]);
+
+    session_unset();
+    session_destroy();
 }
 
 
