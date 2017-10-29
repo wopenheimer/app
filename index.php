@@ -35,29 +35,7 @@
  
     <div class="container">
         <?php
-          if (!check_session_active()) {
-            $_REQUEST["page"] = PAGE_LOGIN;
-            include("controller/" . MODULE_LOGIN ."Controller.php");  
-          } else {
-            if (isset($_REQUEST["module"]) && isset($_REQUEST["page"]))  {
-              $module = $_REQUEST["module"];
-              $page = $_REQUEST["page"];
-              if ($page != PAGE_LOGIN) {
-                if(isset($module) && $module != ""){
-                  if(isset($page) && $page != ""){
-                    include("controller/" . $module ."Controller.php");
-                  }
-                }                   
-              } else {
-                $_REQUEST["page"] = PAGE_HOME;
-                include("controller/" . MODULE_HOME ."Controller.php");                
-              }
-            } else {
-              $_REQUEST["page"] = PAGE_HOME;
-              include("controller/" . MODULE_HOME ."Controller.php");                
-            }   
-          }
-
+        index();
         ?>
     </div>    
   </body>

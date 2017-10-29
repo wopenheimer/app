@@ -13,6 +13,38 @@ define("MODULE_HOME", "paciente");
 define("PAGE_HOME", "home");
 
 
+function index() {
+    switch (check_session_active()) {
+        case true:
+            if (isset($_REQUEST["module"]) && isset($_REQUEST["page"]))  {
+              $module = $_REQUEST["module"];
+              $page = $_REQUEST["page"];
+              if ($page != PAGE_LOGIN) {
+                if(isset($module) && $module != ""){
+                  if(isset($page) && $page != ""){
+                    include("controller/" . $module ."Controller.php");
+                  }
+                }                   
+              } else {
+                $_REQUEST["page"] = PAGE_HOME;
+                include("controller/" . MODULE_HOME ."Controller.php");                
+              }
+            } else {
+              $_REQUEST["page"] = PAGE_HOME;
+              include("controller/" . MODULE_HOME ."Controller.php");                
+            }
+            break;
+        case false:
+            $_REQUEST["page"] = PAGE_LOGIN;
+            include("controller/" . MODULE_LOGIN ."Controller.php");              
+            break;        
+        default:
+            # code...
+            break;
+    }
+}
+
+
 function render($args, $template){
     include("view/" . $template . ".php");
 }
