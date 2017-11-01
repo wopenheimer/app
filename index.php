@@ -1,5 +1,6 @@
 <?php
   session_start();
+  include_once("utils/utils.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,25 +12,24 @@
     <title>Clínicas Médicas</title>
 
     <!-- Bootstrap -->
-    <link href="/view/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/view/css/estilo.css" rel="stylesheet">
-    <link href="/view/css/bootstrap-datetimepicker.min.css" rel="stylesheet">    
+    <link href="<?= BASE_URL ?>view/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= BASE_URL ?>view/css/estilo.css" rel="stylesheet">
+    <link href="<?= BASE_URL ?>view/css/bootstrap-datetimepicker.min.css" rel="stylesheet">    
 
      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/view/js/bootstrap.min.js"></script>
-    <script src="/view/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="/view/js/locale/bootstrap-datetimepicker.pt-BR.js"></script>
+    <script src="<?= BASE_URL ?>view/js/bootstrap.min.js"></script>
+    <script src="<?= BASE_URL ?>view/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="<?= BASE_URL ?>view/js/locale/bootstrap-datetimepicker.pt-BR.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>    
     
   </head>
   <body>
     
-    <?php      
-      include_once("utils/utils.php");
+    <?php            
       include_once("utils/menu.php");
     ?>
  

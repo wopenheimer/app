@@ -1,5 +1,5 @@
   <div class="wrapper">
-    <form action="/comum/login" method="POST" class="form-signin">       
+    <form action="<?= BASE_URL ?>comum/login" method="POST" class="form-signin">       
       <h2 class="form-signin-heading">Entrar</h2>
       <input type="email" class="form-control" name="email" id="email" placeholder="Email" required autofocus="" />
       <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" required />      

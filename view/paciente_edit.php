@@ -1,4 +1,4 @@
- <form action="/paciente/edit" method="POST">
+ <form action="<?= BASE_URL ?>paciente/edit" method="POST">
     <div class="form-group">
         <label for="cpf">Cpf</label>
         <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Cpf" value="<?=$args->getCpf()?>" required>

@@ -6,7 +6,7 @@
                 <h4 class="modal-title">Cálculo de IMC</h4>
             </div>
             <div class="modal-body">
-			    <form action="/paciente/processar_imc" method="POST">
+			    <form action="<?= BASE_URL ?>paciente/processar_imc" method="POST">
 			        <div class="form-group">
 			            <label for="peso">Peso</label>
 			            <input type="text" class="form-control" id="peso" name="peso" placeholder="Peso">

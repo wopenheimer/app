@@ -5,6 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+define("BASE_URL", "http://localhost/analise/");
 
 define("MODULE_LOGIN", "comum");
 define("PAGE_LOGIN", "login");

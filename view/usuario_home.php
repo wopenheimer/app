@@ -17,12 +17,12 @@ print '
 		print '<tr>
 			<td>' .$usuario->getId(). '</td>
 			<td>' .$usuario->getEmail() .'</td>
-			<td><a href="/paciente/edit/' .$usuario->getPaciente()->getCpf() .'">' .$usuario->getPaciente()->getNome() .'</a></td>
+			<td><a href="' . BASE_URL. 'paciente/edit/' .$usuario->getPaciente()->getCpf() .'">' .$usuario->getPaciente()->getNome() .'</a></td>
 			<td>
-			<a href="/usuario/edit/' .$usuario->getId() .'" class="btn btn-default" role="button">
+			<a href="' . BASE_URL. 'usuario/edit/' .$usuario->getId() .'" class="btn btn-default" role="button">
 				<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 			</a>
-			<a href="/usuario/remove/' .$usuario->getId() .'" class="btn btn-default" role="button">
+			<a href="' . BASE_URL. 'usuario/remove/' .$usuario->getId() .'" class="btn btn-default" role="button">
 				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 			</a>
 
@@ -35,6 +35,6 @@ print '</table>';
 
 
 
-<a href="/usuario/add" role="button" class="btn btn-primary" data-toggle="modal">Adicionar Usuário</a>
+<a href="<?= BASE_URL ?>usuario/add" role="button" class="btn btn-primary" data-toggle="modal">Adicionar Usuário</a>
 
 

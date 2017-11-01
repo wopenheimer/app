@@ -6,7 +6,7 @@
                 <h4 class="modal-title">Paciente</h4>
             </div>
             <div class="modal-body">
-			    <form action="/paciente/add" method="POST">
+			    <form action="<?= BASE_URL ?>paciente/add" method="POST">
 			        <div class="form-group">
 			            <label for="cpf">Cpf</label>
 			            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Cpf" required>

@@ -29,10 +29,10 @@ print '
 			<td>' .$paciente->getIdade() .'</td>
 			<td>' .$paciente->getImc() .'</td>
 			<td>
-			<a href="/paciente/edit/' .$paciente->getCpf() .'" class="btn btn-default" role="button">
+			<a href="' . BASE_URL. 'paciente/edit/' .$paciente->getCpf() .'" class="btn btn-default" role="button">
 				<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 			</a>
-			<a href="/paciente/remove/' .$paciente->getCpf() .'" class="btn btn-default" role="button">
+			<a href="' . BASE_URL. 'paciente/remove/' .$paciente->getCpf() .'" class="btn btn-default" role="button">
 				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 			</a>
 

@@ -23,11 +23,11 @@ function login() {
 		$usuario->setSenha(md5($_POST["senha"]));
 
 		$usuario_obj = $usuario->getLogin();
-		
+
 		$args = null;
 		if ($usuario_obj) {
 			create_session_user($usuario_obj);
-			header("Location: /" . MODULE_HOME . "/" . PAGE_HOME);			
+			header("Location: " . BASE_URL . MODULE_HOME . "/" . PAGE_HOME);			
 		} else {
 			$template = "show_message";
 			$args['message'] = "Falha no login.";	
@@ -39,6 +39,6 @@ function login() {
 
 function logout() {
 	destroy_session_user();
-	header("Location: /" . MODULE_LOGIN . "/" . PAGE_LOGIN);				
+	header("Location: " . BASE_URL . MODULE_LOGIN . "/" . PAGE_LOGIN);				
 }
 ?>

@@ -1,4 +1,4 @@
-<form action="/usuario/add" method="POST">
+<form action="<?= BASE_URL ?>usuario/add" method="POST">
 
     <div class="form-group">
         <label for="email">Email</label>

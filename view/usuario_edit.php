@@ -1,4 +1,4 @@
- <form action="/usuario/edit" method="POST">
+ <form action="<?= BASE_URL ?>usuario/edit" method="POST">
     <div class="form-group">
         <label for="id">Id</label>
         <input type="text" class="form-control" id="id" name="id" placeholder="Id" value="<?=$args['usuario']->getId()?>" required>
