@@ -13,11 +13,11 @@ class Dao {
     private $dbtipo;
 
     function __construct() {
-            $this->dbhost = "localhost";
-            $this->dbusuario = "postgres";
-            $this->dbsenha = "postgres";
-            $this->dbport = "5432";
-            $this->dbname = "clinica";
+            $this->dbhost = DB_HOST;
+            $this->dbusuario = DB_USER;
+            $this->dbsenha = DB_PASSWORD;
+            $this->dbport = DB_PORT;
+            $this->dbname = DB_NAME;
     }
 
 

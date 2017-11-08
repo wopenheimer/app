@@ -1,5 +1,6 @@
 <?php
   session_start();
+  include_once("utils/properties.php");  
   include_once("utils/utils.php");
 ?>
 <!DOCTYPE html>
